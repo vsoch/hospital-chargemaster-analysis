@@ -2,10 +2,11 @@
 
 import os
 import pandas
+import pickle
 
 # Location (root) of git@github.com:vsoch/hospital-chargemasters
 
-base = "/home/vanessa/Documents/Dropbox/Code/database/hospital-chargemasters"
+base = "/home/vanessa/Documents/Dropbox/Code/database/hospital-chargemaster"
 hospital_folders = os.listdir('%s/data' %base)
 
 # Read in data latest to common data frame
@@ -23,7 +24,8 @@ for folder in hospital_folders:
     if os.path.exists(data_file):
         data_files.append(data_file)
 
-#data_files = data_files[0:3]
+# Create smaller set for now
+data_files = data_files[0:1]
 df = pandas.DataFrame(columns=columns)
 
 for data_file in data_files:
@@ -80,8 +82,13 @@ for row in df.iterrows():
         words = sentence2words(description)
         corpus.append(' '.join(words))
 
+# Cut off based on words
+
 vectorizer = CountVectorizer()
 X = vectorizer.fit_transform(corpus)
 
 print(vectorizer.get_feature_names())
 print(X.toarray())
+
+pickle.dump(vectorizer, open('vectorizer.pkl', 'wb'))
+pickle.dump(X, open('vectorizer-X.pkl', 'wb'))

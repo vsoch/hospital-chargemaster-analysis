@@ -90,5 +90,6 @@ X = vectorizer.fit_transform(corpus)
 print(vectorizer.get_feature_names())
 print(X.toarray())
 
+pickle.dump(corpus, open('corpus.pkl', 'wb'))
 pickle.dump(vectorizer, open('vectorizer.pkl', 'wb'))
 pickle.dump(X, open('vectorizer-X.pkl', 'wb'))

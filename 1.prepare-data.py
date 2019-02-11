@@ -4,7 +4,7 @@ import os
 import pandas
 import pickle
 
-# Location (root) of git@github.com:vsoch/hospital-chargemasters
+# Location (root) of git@github.com:vsoch/hospital-chargemaster
 
 base = "/home/vanessa/Documents/Dropbox/Code/database/hospital-chargemaster"
 hospital_folders = os.listdir('%s/data' %base)
@@ -31,6 +31,8 @@ df = pandas.DataFrame(columns=columns)
 for data_file in data_files:
     df_ = pandas.read_csv(data_file, sep='\t')
     df = df.append(df_)
+
+df.to_csv('chargemaster-subset.tsv', sep='\t', index=None)
 
 ################################################################################
 # Preprocessing

@@ -12,19 +12,20 @@ a given hospital) based on the chargemaster data. For example, I would expect it
 with the terms "brain" or "heart" to be more expensive than general medications
 like Advil (ibuprofen). 
 
-The approach we will take is to try word2vec.
+The approach we will take is to try a simple linear regression. I don't want to do the ultimate analysis, but rather to show you that the data is interesting.
 
- 1. We first will read in our input data into one data frame. The idea is that we will train by way of random selection from this data so that the training to be biased to any particular hospital.
- 2. We will then do stemming, stop word removal, removal of non-alphanumeric characters, and make all terms lowercase.
- 3. Each of the entries will have a unique identifier.
- 4. Then we will create a sparse data frame of words (columns) by the unique identifiers (rows). We can use [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer) to create this data frame.
- 5. The first model we will train is linear regression (possibly with lasso to get more zero entries). This will give us a baseline model.
+ 1. We first start with data from one hospital. This is to keep the data frame size reasonable to share on GitHub, and also speedy to run on my tiny local machine.
+ 2. We will then do stop word removal and make all terms lowercase.
+ 3. Then we will create a sparse data frame of words (columns) by the unique identifiers (rows). We can use [scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer) to create this data frame.
+ 4. The first model we will train is linear regression (possibly with lasso to get more zero entries).
 
-Then try: when we get a lot of zeros (throw out) and try polynomial to have different weights for different inputs.
+Given over one hundred hospitals, there are definitely more interesting models to build and things
+to try! And you need validation. I leave this up to you, dear data scientist.
 
 ### 1. Data Preparation
 
-We will first clone the data:
+The data required for the dummy demo is provided in the repository, and here is
+how I produced them:
 
 ```bash
 git clone https://www.github.com/vsoch/hospital-chargemasters

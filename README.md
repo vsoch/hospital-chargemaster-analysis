@@ -1,6 +1,6 @@
 # Hospital Chargemaster Analysis
 
-This is a small analysis using the [hospital chargemasters](https://www.github.com/vsoch/hospital-chargemasters)
+This is a small analysis using the [hospital chargemaster](https://www.github.com/vsoch/hospital-chargemaster)
 Dinosaur Dataset. See [the notebook](https://github.com/vsoch/hospital-chargemaster-analysis/blob/master/hospital_chargemaster_analysis.ipynb) for a quick example that shows there is interesting signal in the data for one hospital. We can build a linear model, perform feature selection with Lasso, and try to predict prices based on descriptor terms.
 
 <a target="_blank" href="https://camo.githubusercontent.com/d0eb19f161d4795a9c137b9b71c70b008d7c5e8e/68747470733a2f2f76736f63682e6769746875622e696f2f64617461736574732f6173736574732f696d672f61766f6361646f2e706e67"><img src="https://camo.githubusercontent.com/d0eb19f161d4795a9c137b9b71c70b008d7c5e8e/68747470733a2f2f76736f63682e6769746875622e696f2f64617461736574732f6173736574732f696d672f61766f6361646f2e706e67" alt="https://vsoch.github.io/datasets/assets/img/avocado.png" data-canonical-src="https://vsoch.github.io/datasets/assets/img/avocado.png" style="max-width:100%; float:right" width="100px"></a>
